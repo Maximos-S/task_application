@@ -5,6 +5,5 @@ export const get_lists = async() => {
     }
   });
   let res = await response.json();
-  console.log(res)
   return res
 }
