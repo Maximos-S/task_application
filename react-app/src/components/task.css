@@ -1,0 +1,9 @@
+
+.task_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task_button_container {
+    display: flex;
+}
