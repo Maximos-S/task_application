@@ -3,11 +3,13 @@ import {Container, Button, TextField, RadioGroup, FormControlLabel, FormLabel, F
 
 import {ListContext} from '../context'
 import {create_task} from '../services/task'
+import {get_lists} from '../services/list'
 import './form.css'
 
 export default function CreateTask() {
     const [status, setStatus] = useState('false');
     const lists = useContext(ListContext).lists.lists
+    const setLists = useContext(ListContext).setLists
     const [listTitle, setListTitle] = useState(1)
     const [taskTitle, setTaskTitle] = useState("")
     const [taskDescription, setTaskDescription] = useState("")
@@ -52,6 +54,9 @@ export default function CreateTask() {
             if (res.error) {
                 setErrors([...errors,res.error])
             }
+            let newLists = await get_lists()
+            setLists(newLists)
+
         } else {
             setErrors([...errors, "you must fill out all required fields"])
         }
