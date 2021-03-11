@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import {Container, Button, TextField, RadioGroup, FormControlLabel, FormLabel, FormControl, Radio, InputLabel, Select, MenuItem} from '@material-ui/core'
 
 import {ListContext} from '../context'
+import {create_task} from '../services/task'
 import './form.css'
 
 export default function CreateTask() {
@@ -26,7 +27,7 @@ export default function CreateTask() {
         setTaskDescription(e.target.value)
     }
 
-    const sendForm = (e) => {
+    const sendForm = async (e) => {
         e.preventDefault();
 
         if (taskTitle && listTitle && taskDescription) {
@@ -45,7 +46,8 @@ export default function CreateTask() {
             setTaskDescription("")
             setStatus("false")
             setListTitle(1)
-            g
+            
+            await create_task(data)
         }
     }
   return (

@@ -8,10 +8,12 @@ task_routes = Blueprint('tasks', __name__)
 def create_task():
     print("#######")
     form = TaskForm()
-    if form.validate_on_submit():
-        task = Task(form.data["title"], form.data["description"], form.data["status"], form.data["list_id"])
+    if form.validate_on_submit:
+        task = Task(title=form.data["title"], description=form.data["description"], status=form.data["status"], listId=form.data["list_id"])
         db.session.add(task)
         db.session.commit()
+    else:
+        print("yolo########")
     return {"message": "no task to get"}
 
 @task_routes.route('/<id>', methods=["DELETE"])
