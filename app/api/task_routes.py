@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Task, List, db
-from forms import TaskForm
+from app.forms import TaskForm
 
 task_routes = Blueprint('tasks', __name__)
 
@@ -14,7 +14,7 @@ def create_task():
         db.session.commit()
     return {"message": "no task to get"}
 
-@task_routes.route('/<id>', methods=["DELETE",])
+@task_routes.route('/<id>', methods=["DELETE"])
 def delete_task(id):
     """
     Deletes Task
