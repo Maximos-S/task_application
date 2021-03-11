@@ -5,12 +5,15 @@ import {delete_task, create_comment,delete_comment} from '../services/task'
 import {get_lists} from '../services/list'
 import {ListContext} from "../context"
 import './task.css'
+import EditForm from './EditForm';
 
 
 export default function Task({task}) {
     const [visible, setVisible] = useState(false)
     const setLists = useContext(ListContext).setLists
     const [commentText, setCommentText] = useState("")
+    const [editForm, setEditForm] = useState(false)
+
 
     const handleClick = () => {
         console.log(visible)
@@ -21,6 +24,8 @@ export default function Task({task}) {
     const editTask = async (e) => {
         e.stopPropagation()
         e.preventDefault()
+        setVisible(true)
+        setEditForm(true)
     }
 
     const commentPropagation = (e) => {
@@ -79,11 +84,15 @@ export default function Task({task}) {
                 </div>
             </div>
             {visible && 
-                <div className="task_details_container">
-                    <div className="task_details">
+                <div className="task_details_container" onClick={commentPropagation}>
+                    {editForm ? 
+                        <EditForm task={task} setEditForm={setEditForm}/>
+                    :
+                        <div className="task_details">
                         <div style={{"fontSize": "1.25em", "color": "tomato"}}>Description</div>
                         {task.description}
-                    </div>
+                        </div>
+                    }
                     <div className="task_comments_container" onClick={commentPropagation}>
                         <div style={{"fontSize": "1.25em", "color": "tomato"}}>Comments</div>
                         <div className="comment_container">
@@ -94,14 +103,17 @@ export default function Task({task}) {
                                 </div>
                             ))}
                         </div>
+                            <form onSubmit={handleCommentSubmit}>
                         <div className="comment_input">
-                            <TextField 
-                                value={commentText} fullWidth id="standard-basic" 
-                                label="Comment" 
-                                onChange={e=>setCommentText(e.target.value)}
-                            />
-                            <Button onClick={handleCommentSubmit}>Submit</Button>
+                                <TextField 
+                                    value={commentText} fullWidth id="standard-basic" 
+                                    label="Comment" 
+                                    onChange={e=>setCommentText(e.target.value)}
+                                    // onSubmit={handleCommentSubmit}
+                                />
+                                <Button onClick={handleCommentSubmit}>Submit</Button>
                         </div>
+                            </form>
                     </div>
                 </div>
             }

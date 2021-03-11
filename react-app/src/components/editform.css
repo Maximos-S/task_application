@@ -1,0 +1,9 @@
+.edit_form_container {
+    box-sizing: border-box;
+    width: 50%;
+    background-color: dodgerblue;
+    padding: 20px;
+    display:flex;
+    justify-content: center;
+    border-radius: 10px;
+}

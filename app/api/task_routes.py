@@ -31,13 +31,27 @@ def delete_comment(id):
 
     return {"message": "success"}
 
+@task_routes.route('/<id>', methods=["PATCH"])
+def edit_task(id):
+    form = TaskForm()
+    if form.validate_on_submit:
+        task = Task.query.filter_by(id=id).first()
+        task.title = form.data["title"]
+        task.description = form.data["description"]
+        task.status = form.data["status"]
+        task.listId = form.data["list_id"]
+        db.session.add(task)
+        db.session.commit()
+        return {"message": "success"}
+    else:
+        return {"error": "there was an error"}
+
 @task_routes.route('/<id>', methods=["DELETE"])
 def delete_task(id):
     """
     Deletes Task
 
     """
-    print("delorted")
     try:
         task = Task.query.filter_by(id=id).first()
         lists = List.query.all()

@@ -16,6 +16,7 @@ class Task(db.Model):
             "id": self.id,
             "title": self.title,
             "description": self.description,
+            "listId": self.listId,
             "status": self.status,
             "comments": [comment.to_dict() for comment in self.comments]
         })
