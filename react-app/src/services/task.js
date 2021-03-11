@@ -5,9 +5,14 @@ export const create_task = async(payload) => {
   })
   return await response.json()
 }
-// export const get_tasks = async() => {
-//     const response = await fetch("/api/tasks")
-// }
+
+export const create_comment = async(payload, id) => {
+  const response = await fetch(`/api/tasks/${id}`, {
+    method: "post",
+    body: payload
+  })
+  return await response.json()
+}
 
 export const delete_task = async(id) => {
   const response = await fetch(`/api/tasks/${id}`,{

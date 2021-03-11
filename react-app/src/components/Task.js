@@ -1,7 +1,8 @@
 import React, {useState,useContext} from 'react'
 import {Box, TextField, Button} from '@material-ui/core';
 
-import {delete_task} from '../services/task'
+import {delete_task, create_comment} from '../services/task'
+import {get_lists} from '../services/list'
 import {ListContext} from "../context"
 import './task.css'
 
@@ -37,7 +38,16 @@ export default function Task({task}) {
         e.stopPropagation()
         e.preventDefault()
 
-        setCommentText("")
+        if (commentText) {
+            const data = new FormData()
+            setCommentText("")
+            data.append("content", commentText)
+            data.append("taskId", task.id)
+
+            const res = await create_comment(data, task.id)
+            const newLists = await get_lists()
+            setLists(newLists)
+        }
     } 
 
     return (

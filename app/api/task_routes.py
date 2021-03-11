@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Task, List, db
+from app.models import Task, List, Comment, db
 from app.forms import TaskForm
 
 task_routes = Blueprint('tasks', __name__)
@@ -14,6 +14,14 @@ def create_task():
         return {"message": "your form was submitted"}
     else:
         return {"error": "there was a problem submitting your form"}
+
+@task_routes.route("/<id>", methods=["POST"])
+def create_comment(id):
+    data = request.form["content"]
+    comment = Comment(content=data, taskId=id)
+    db.session.add(comment)
+    db.session.commit()
+    return {"message": "message"}
 
 @task_routes.route('/<id>', methods=["DELETE"])
 def delete_task(id):
