@@ -2,9 +2,55 @@
 .task_container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     cursor: pointer;
 }
 
 .task_button_container {
     display: flex;
+}
+
+.task_status {
+    display: flex;
+    align-items:center;
+}
+
+.task_title {
+    font-size: 1.5em;
+}
+
+.task_details_container {
+    display: flex;
+}
+.task_details {
+    padding: 10px;
+    padding-left: 20px;
+    width: 50%;
+}
+
+.task_comments_container {
+    width: 50%;
+    padding: 10px;
+}
+
+.comment_container {
+    max-height: 150px;
+    overflow: scroll;
+}
+
+.comment{
+    margin: 10px;
+    background-color: dodgerblue;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.comment_input {
+    display:flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px 10px 5px 15px;
+
 }

@@ -5,7 +5,8 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App style={{"margin": "auto",}}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
+

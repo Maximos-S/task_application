@@ -12,7 +12,7 @@ def get_lists():
     """
     lists = List.query.all()
     lists = [list.to_dict() for list in lists]
-    print("lists", lists)
+    print("lists", lists[0])
     return {"lists": lists}
 
 

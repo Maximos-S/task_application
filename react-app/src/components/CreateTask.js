@@ -62,7 +62,7 @@ export default function CreateTask() {
         }
     }
   return (
-      <div style={{"backgroundColor": "salmon", "padding": 20}}>
+      <div style={{"backgroundColor": "goldenrod", "padding": 20, "display":"flex", "justifyContent": "center"}}>
         {errors.map((error) => (
                 <div>{error}</div>
                 ))}
