@@ -39,6 +39,8 @@
 }
 
 .comment{
+    display: flex;
+    justify-content: space-between;
     margin: 10px;
     background-color: dodgerblue;
     padding: 5px;
@@ -48,9 +50,15 @@
 .comment_input {
     display:flex;
     justify-content: space-between;
+    align-items: center;
     background-color: white;
     border-radius: 20px;
     margin: 10px;
     padding: 5px 10px 5px 15px;
+}
 
+.comment_text {
+    padding: 10px;
+    display:flex;
+    align-items: center;
 }

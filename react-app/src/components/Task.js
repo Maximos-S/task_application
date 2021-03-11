@@ -1,7 +1,7 @@
 import React, {useState,useContext} from 'react'
 import {Box, TextField, Button} from '@material-ui/core';
 
-import {delete_task, create_comment} from '../services/task'
+import {delete_task, create_comment,delete_comment} from '../services/task'
 import {get_lists} from '../services/list'
 import {ListContext} from "../context"
 import './task.css'
@@ -49,6 +49,16 @@ export default function Task({task}) {
             setLists(newLists)
         }
     } 
+    const handleDeleteComment = async(e, id) => {
+        e.stopPropagation()
+        e.preventDefault()
+        console.log(id)
+        const res = await delete_comment(id)
+
+        const newLists = await get_lists()
+        setLists(newLists)
+
+    }
 
     return (
         <div className="task_dropdown_container" onClick={handleClick}>
@@ -78,7 +88,10 @@ export default function Task({task}) {
                         <div style={{"fontSize": "1.25em", "color": "tomato"}}>Comments</div>
                         <div className="comment_container">
                             {task.comments && task.comments.map(comment => (
-                                <div className="comment">{comment.content}</div>
+                                <div className="comment">
+                                    <div className="comment_text">{comment.content}</div>
+                                    <Button onClick={e => (handleDeleteComment(e, comment.id))}>Delete</Button>
+                                </div>
                             ))}
                         </div>
                         <div className="comment_input">

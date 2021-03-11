@@ -13,6 +13,12 @@ export const create_comment = async(payload, id) => {
   })
   return await response.json()
 }
+export const delete_comment = async(id) => {
+  const response = await fetch(`/api/tasks/comments/${id}`, {
+    method: "delete",
+  })
+  return await response.json()
+}
 
 export const delete_task = async(id) => {
   const response = await fetch(`/api/tasks/${id}`,{

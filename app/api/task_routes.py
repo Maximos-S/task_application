@@ -21,7 +21,15 @@ def create_comment(id):
     comment = Comment(content=data, taskId=id)
     db.session.add(comment)
     db.session.commit()
-    return {"message": "message"}
+    return {"message": "success"}
+
+@task_routes.route("/comments/<id>", methods=["DElETE"])
+def delete_comment(id):
+    comment = Comment.query.filter_by(id=id).first()
+    db.session.delete(comment)
+    db.session.commit()
+
+    return {"message": "success"}
 
 @task_routes.route('/<id>', methods=["DELETE"])
 def delete_task(id):
