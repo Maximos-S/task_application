@@ -1,7 +1,10 @@
 ![](trustero_tasks.gif)
 
 # Trustero Tasks
-> Trustero Tasks is a fullstack React App with a Postgres database created by me, Maximos Salzman. I implemented a Flask server on the backend with FlaskSQLAlchemy, and WTFforms. The backend API follows RESTful principles to allow the client to create, edit and delete tasks and comments. The database is structured
+> Trustero Tasks is a fullstack React App with a Postgres database created by me, Maximos Salzman. I implemented a Flask server on the backend with FlaskSQLAlchemy, and WTFforms. The backend API follows RESTful principles to allow the client to create, edit and delete tasks and comments. 
+
+![](database.png)
+
 ## Getting started
 
 1. Clone this repository (only this branch)
