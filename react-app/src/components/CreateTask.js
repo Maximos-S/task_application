@@ -11,6 +11,7 @@ export default function CreateTask() {
     const [listTitle, setListTitle] = useState(1)
     const [taskTitle, setTaskTitle] = useState("")
     const [taskDescription, setTaskDescription] = useState("")
+    const [errors, setErrors] = useState([])
 
     const handleChange = (event) => {
         setStatus(event.target.value);
@@ -46,12 +47,20 @@ export default function CreateTask() {
             setTaskDescription("")
             setStatus("false")
             setListTitle(1)
-            
-            await create_task(data)
+            setErrors([])
+            const res = await create_task(data)
+            if (res.error) {
+                setErrors([...errors,res.error])
+            }
+        } else {
+            setErrors([...errors, "you must fill out all required fields"])
         }
     }
   return (
       <div style={{"backgroundColor": "salmon", "padding": 20}}>
+        {errors.map((error) => (
+                <div>{error}</div>
+                ))}
         <FormControl component="fieldset">
             <div className="input-container">
                 <FormLabel component="legend">
