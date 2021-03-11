@@ -25,11 +25,17 @@ def seed_tasks():
                 title="Pay Rent",
                 description="This is also very, very important, don't forget"
                 )
+    daily3 = Task(
+                listId=1, 
+                title="Wash Dishes",
+                description="Please make sure to wash every dish, dry and then put away"
+                )
 
     db.session.add(daily)
     db.session.add(daily2)
     db.session.add(weekly)
     db.session.add(monthly)
+    db.session.add(daily3)
 
     db.session.commit()
 
