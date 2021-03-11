@@ -2,6 +2,7 @@
 .task_container {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .task_button_container {

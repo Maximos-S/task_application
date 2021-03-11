@@ -10,8 +10,9 @@ def get_lists():
     Sends Lists
 
     """
-    print("hitsss")
     lists = List.query.all()
     lists = [list.to_dict() for list in lists]
     print("lists", lists)
     return {"lists": lists}
+
+

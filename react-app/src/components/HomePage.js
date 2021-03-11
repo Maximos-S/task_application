@@ -36,11 +36,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HomePage = () => {
-    const context = useContext(ListContext)
+    const lists = useContext(ListContext).lists.lists
     const [value, setValue] = React.useState(0);
     const classes = useStyles();
 
-    const lists = context.lists
+    console.log("lists", lists)
 
     useEffect(() => {
         return () => {

@@ -5,8 +5,7 @@ import {ListContext} from '../context'
 import './form.css'
 
 export default function CreateTask() {
-    const context = useContext(ListContext)
-    const lists = context.lists
+    const lists = useContext(ListContext).lists.lists
 
     const [value, setValue] = React.useState('false');
 

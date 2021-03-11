@@ -7,7 +7,7 @@ from flask_login import LoginManager
 
 from .models import db, List, Task, Comment
 from .api.list_routes import list_routes
-
+from .api.task_routes import task_routes
 
 from .seeds import seed_commands
 
@@ -15,15 +15,12 @@ from .config import Config
 
 app = Flask(__name__)
 
-
-
-
-
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 app.register_blueprint(list_routes, url_prefix='/api/lists')
+app.register_blueprint(task_routes, url_prefix='/api/tasks')
 # app.register_blueprint(user_routes, url_prefix='/api/users')
 # app.register_blueprint(auth_routes, url_prefix='/api/auth')
 db.init_app(app)

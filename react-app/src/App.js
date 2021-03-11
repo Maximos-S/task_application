@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <ListContext.Provider value={lists}>
+    <ListContext.Provider value={{lists, setLists}}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact={true}>

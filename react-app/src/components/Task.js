@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import {Box, Button} from '@material-ui/core';
 
+import {delete_task} from '../services/task'
+import {ListContext} from "../context"
 import './task.css'
 
 
 export default function Task({task}) {
     const [visible, setVisible] = useState(false)
+    const setLists = useContext(ListContext).setLists
+
 
     const handleClick = () => {
         console.log(visible)
@@ -13,6 +17,12 @@ export default function Task({task}) {
         return
     }
 
+    const deleteTask = async (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+        const res = await delete_task(task.id)
+        setLists(res)
+    }
     return (
         <div className="task_dropdown_container" onClick={handleClick}>
             <div className="task_container">
@@ -26,7 +36,7 @@ export default function Task({task}) {
                     <Button>
                         edit
                     </Button>
-                    <Button>
+                    <Button onClick={deleteTask}>
                         delete
                     </Button>
                 </div>
