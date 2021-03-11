@@ -68,7 +68,9 @@ const HomePage = () => {
                 </TabPanel>
             })}
             <TabPanel value={value} index={3}>
-                <CreateTask />
+                <div className="form_wrapper">
+                  <CreateTask />
+                </div>
             </TabPanel>
         </AppBar>
     </Container>

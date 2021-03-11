@@ -80,7 +80,7 @@ export default function EditForm({task,setEditForm}) {
                 </div>
                 <div className="input-container">
                     
-                    <TextField id="outlined-basic" label="Description" variant="outlined" value={taskDescription} onChange={handleDescriptionChange}/>
+                    <TextField id="outlined-multiline-static" multiline rows={3} label="Description" variant="outlined" value={taskDescription} onChange={handleDescriptionChange}/>
                 </div>
                 <div className="input-container">
                     <FormLabel component="legend">Status</FormLabel>

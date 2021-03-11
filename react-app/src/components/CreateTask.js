@@ -62,7 +62,7 @@ export default function CreateTask() {
         }
     }
   return (
-      <div style={{"backgroundColor": "goldenrod", "padding": 20, "display":"flex", "justifyContent": "center"}}>
+      <div className="form_container">
         {errors.map((error) => (
                 <div>{error}</div>
                 ))}
@@ -77,7 +77,7 @@ export default function CreateTask() {
             </div>
             <div className="input-container">
                 
-                <TextField id="outlined-basic" label="Description" variant="outlined" value={taskDescription} onChange={handleDescriptionChange}/>
+                <TextField id="outlined-basic" multiline label="Description" variant="outlined" value={taskDescription} onChange={handleDescriptionChange}/>
             </div>
             <div className="input-container">
                 <FormLabel component="legend">Status</FormLabel>
@@ -86,49 +86,18 @@ export default function CreateTask() {
                     <FormControlLabel value="false" control={<Radio />} label="In Progress" />
                 </RadioGroup>
             </div>
-            <Select
-                value={listTitle}
-                onChange={handleListChange}
-            >
-                {lists && lists.map(list => {
-                        return <MenuItem key={list.id} value={list.id}>{list.title}</MenuItem>
-                })}
-            </Select>
+                <Select
+                    value={listTitle}
+                    onChange={handleListChange}
+                >
+                    {lists && lists.map(list => {
+                            return <MenuItem key={list.id} value={list.id}>{list.title}</MenuItem>
+                    })}
+                </Select>
             <div className="button-container">
                 <Button onClick={sendForm}>Submit</Button>
             </div>
         </FormControl>
       </div>
   );
-
-    // const [status, setStatus] = React.useState(false);
-
-    // const handleChange = (event) => {
-    //     console.log("hello", status)
-    //     console.log("val",event.target.value)
-    //     setStatus(event.target.value);
-    //     console.log("post",status)
-    // };
-
-    // return (
-    //     <Container>
-    //         <FormControl component="fieldset">
-                {/* <FormLabel component="legend">
-                    New Task
-                </FormLabel>
-                <TextField id="standard-basic" label="Task Title" />
-                <TextField id="outlined-basic" label="Description" variant="outlined" /> */}
-    //             <RadioGroup aria-label="status" name="status1" value={status} onChange={handleChange}>
-    //                 <FormControlLabel value={true} control={<Radio />} label="Done" />
-    //                 <FormControlLabel value={false} control={<Radio />} label="In Progress" />
-    //             </RadioGroup>
-    //             {/* <InputLabel>List</InputLabel>
-    //             <Select>
-    //                 {lists && lists.map(list => {
-    //                     return <MenuItem key={list.id} value={list.id}>{list.title}</MenuItem>
-    //                 })}
-    //             </Select> */}
-    //         </FormControl>
-    //     </Container>
-    // )
 }

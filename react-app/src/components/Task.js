@@ -89,12 +89,12 @@ export default function Task({task}) {
                         <EditForm task={task} setEditForm={setEditForm}/>
                     :
                         <div className="task_details">
-                        <div style={{"fontSize": "1.25em", "color": "tomato"}}>Description</div>
+                        <div style={{"fontSize": "1.25em", "color": "#1f1115"}}>Description</div>
                         {task.description}
                         </div>
                     }
                     <div className="task_comments_container" onClick={commentPropagation}>
-                        <div style={{"fontSize": "1.25em", "color": "tomato"}}>Comments</div>
+                        <div style={{"fontSize": "1.25em", "color": "#1f1115"}}>Comments</div>
                         <div className="comment_container">
                             {task.comments && task.comments.map(comment => (
                                 <div className="comment">

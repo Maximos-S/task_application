@@ -1,4 +1,11 @@
 
+.task_dropdown_container {
+    margin: 10px;
+    background-color: dodgerblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .task_container {
     display: flex;
     justify-content: space-between;
@@ -13,6 +20,7 @@
 .task_status {
     display: flex;
     align-items:center;
+    margin: 5px;
 }
 
 .task_title {
@@ -26,6 +34,10 @@
     padding: 10px;
     padding-left: 20px;
     width: 50%;
+    border: solid 1px #1f1115;
+    border-radius: 10px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
 }
 
 .task_comments_container {
@@ -34,8 +46,10 @@
 }
 
 .comment_container {
-    max-height: 150px;
+    height: 200px;
     overflow: scroll;
+    background-color: #1f1115;
+    border-radius: 10px;
 }
 
 .comment{
@@ -52,7 +66,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px;
     padding: 5px 10px 5px 15px;
 }

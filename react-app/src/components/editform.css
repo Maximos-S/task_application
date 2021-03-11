@@ -6,4 +6,5 @@
     display:flex;
     justify-content: center;
     border-radius: 10px;
+    border: solid #1f1115 2px;
 }
