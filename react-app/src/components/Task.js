@@ -109,7 +109,6 @@ export default function Task({task}) {
                                     value={commentText} fullWidth id="standard-basic" 
                                     label="Comment" 
                                     onChange={e=>setCommentText(e.target.value)}
-                                    // onSubmit={handleCommentSubmit}
                                 />
                                 <Button onClick={handleCommentSubmit}>Submit</Button>
                         </div>
