@@ -46,7 +46,7 @@
 }
 
 .comment_container {
-    height: 200px;
+    height: 150px;
     overflow: scroll;
     background-color: #1f1115;
     border-radius: 10px;
